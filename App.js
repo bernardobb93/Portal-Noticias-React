@@ -32,7 +32,7 @@ function HomeScreen({navigation}) {
                       <ImageBackground style={styles.image} source={{ uri: val.info.imagem }} >
                       <TouchableOpacity onPress={()=>navigation.navigate('Noticia',{
                         titulo: val.info.titulo,
-                        conteudo: val.info.conteudo,
+                        texto: val.info.texto,
                         imagem: val.info.imagem
                       })} style={{
         
@@ -42,7 +42,7 @@ function HomeScreen({navigation}) {
                           justifyContent:'flex-end'
         
                       }}>
-                      <Text style={{fontSize:27,color:'white'}}>{val.info.titulo}</Text>
+                      <Text style={{fontSize:27,color:'white',padding:20}}>{val.info.titulo}</Text>
                       </TouchableOpacity>
                     </ImageBackground>
                     )
@@ -72,11 +72,11 @@ function HomeScreen({navigation}) {
                    <View style={{flexDirection:'row',marginBottom:10}}>
                       <TouchableOpacity style={{flexDirection:'row'}} onPress={()=>navigation.navigate('Noticia',{
                         titulo: val.info.titulo,
-                        conteudo: val.info.conteudo,
+                        texto: val.info.texto,
                         imagem: val.info.imagem
                       })}>
                       <Image source={{ uri: val.info.imagem}} style={{width:100,height:100}} />
-                    <Text style={{padding:10}}>{val.info.titulo}</Text>
+                    <Text style={{padding:20}}>{val.info.titulo}</Text>
                       </TouchableOpacity>
                   </View>
                 )}
@@ -107,7 +107,7 @@ function NoticiaScreen({ route,navigation }) {
               justifyContent:'flex-end',
               padding:10
             }}>
-              <Text style={{fontSize:27,color:'white'}}>{route.params.titulo}</Text>
+              <Text style={{fontSize:27,color:'white',padding:10}}>{route.params.titulo}</Text>
             </View>          
          </ImageBackground>
          
@@ -115,7 +115,7 @@ function NoticiaScreen({ route,navigation }) {
          <Text style={{
           fontSize:15,
           padding:20
-        }}>{route.params.conteudo}</Text>
+        }}>{route.params.texto}</Text>
       </View>
     </ScrollView>
     </View>
@@ -139,7 +139,8 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     justifyContent:'flex-end',
     width:'100%',
-    flex:1
+    flex:1,
+
   },
 
   imageConteudo: {
